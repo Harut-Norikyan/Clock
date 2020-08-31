@@ -6,31 +6,33 @@
   justify-content: center;
   align-items: center;
   border: 4px solid #000;
-} 
+}
 .point{
   background-color: #000;
   border-radius: 50%;
   position: relative;
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
+  z-index: 50;
 }
 
 .rotatedBySec{
   display: flex;
   flex-flow: column;
   position: absolute;
-  top: -100px;
-  left: -3px;
+  top: -98px;
+  left: 1px;
+  z-index: 1001;
 }
 .firstSecond{
   height: 100px;
-  width: 6px;
-  background: transparent;
+  width: 2px;
+  background: red;
 }
 .lastSecond{
   height: 100px;
-  width: 6px;
-  background: lime;
+  width: 2px;
+  background: transparent;
   border-radius: 3px;
 }
 
@@ -39,45 +41,52 @@
   flex-flow: column;
   position: absolute;
   top: -78px;
-  left: 2px;
+  left: 0;
   height: 160px;
 }
 .firstMin{
   height: 80px;
-  width: 6px;
-  background: red;
+  width: 4px;
+  background: #000000;
   border-radius: 3px;
 }
 .lastMin{
   height: 80px;
-  width: 6px;
+  width: 4px;
   background: transparent;
-  
 }
 .rotatedByHour{
   display: flex;
   flex-flow: column;
   position: absolute;
-  top: -57px;
-  left: 0px;
-  height: 120px;
+  top: -48px;
+  left: -1px;
+  height: 100px;
 }
 .firstHour{
-  height: 60px;
+  height: 50px;
   width: 6px;
-  background: #000;
+  background: #000000;
   border-radius: 3px;
 }
 .lastHour{
-  height: 60px;
+  height: 50px;
   width: 6px;
   background: transparent;
 }
 .pointItem{
   position: absolute;
-  height: 20px;
-  width: 20px;
+  height: 14px;
+  width: 14px;
   border-radius: 50%;
   background: #000;
-  z-index: 10;
+  z-index: 1002;
+}
+.img{
+  width: 214px;
+  position: absolute;
+  border-radius: 50%;
+  height: 214px;
+  left: 4px;
+  top: 4px;
 }

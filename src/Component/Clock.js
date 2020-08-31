@@ -4,7 +4,9 @@ import ClockBody from "./ClockBody"
 class Clock extends React.Component {
 
     state = {
-        data: '',
+        hours : 0,
+        minutes : 0,
+        seconds : 0
     };
 
     componentDidMount() {
@@ -12,25 +14,25 @@ class Clock extends React.Component {
     };
 
     getData = () => {
-        let { data } = this.state
         setTimeout(() => {
             axios.get(`http://localhost:4000`)
                 .then(res => {
-                    data = res.data;
-                    data = data.slice(11, 19);
                     this.setState({
-                        data,
+                        hours : res.data.hours,
+                        minutes : res.data.minutes,
+                        seconds : res.data.seconds,
                     });
                 }).useDefaultXhrHeader = false;
             this.getData();
         }, 1000);
+
     };
     render() {
         return (
             <>
-                <ClockBody data={this.state.data} />
+                <ClockBody data={this.state} />
             </>
-        )
+        );
     };
 };
 export default Clock;

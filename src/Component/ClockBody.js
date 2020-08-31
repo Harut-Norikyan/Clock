@@ -1,38 +1,40 @@
 import React from "react";
-
+import img from "./images/86787501_Clockblank150dpi.jpg"
 const ClockBody = (props) => {
 
-    let seconds = props.data ? props.data : 0;
-    let minutes = props.data ? props.data : 0;
-    let hourse = props.data ? props.data : 0;
-    if(seconds !== 0){
-        seconds = +seconds.slice(5,7);
-        minutes = +minutes.slice(2,4);
-        hourse = +hourse.slice(0,1);
+    let hours = props.data.hours;
+    if (hours <= 12){
+        hours = hours * 30;
     }
+    if (hours > 12){
+        hours = (hours % 12) * 30
+    }
+    let minutes = props.data.minutes * 6;
+    let seconds = props.data.seconds * 6;
+
 
     return (
-        <div className="container">
-            <div className="point">
-                <div className="rotatedBySec" style={{transform :`rotate(${seconds * 6}deg)`}}>
-                    <div className="firstSecond" />
-                    <div className="lastSecond" />
+        <div>
+            <div className="imgBlock"><img className="img" src={img} alt=""/></div>
+            <div className="container">
+                <div className="point">
+                    <div className="rotatedBySec" style={{transform :`rotate(${seconds}deg)`}}>
+                        <div className="firstSecond" />
+                        <div className="lastSecond" />
+                    </div>
+                    <div className="rotatedByMin" style={{transform :`rotate(${minutes}deg)`}}>
+                        <div className="firstMin" />
+                        <div className="lastMin" />
+                    </div>
+                    <div className="rotatedByHour" style={{transform :`rotate(${hours}deg)`}}>
+                        <div className="firstHour" />
+                        <div className="lastHour" />
+                    </div>
                 </div>
-                <div className="rotatedByMin" style={{transform :`rotate(${minutes * 6}deg)`}}>
-                    <div className="firstMin" />
-                    <div className="lastMin" />
-                </div>
-                <div className="rotatedByHour"
-                 style={{transform :`rotate(${hourse * 30}deg)`}}
-                 >
-                    <div className="firstHour" />
-                    <div className="lastHour" />
-                </div>
+                <div className="pointItem"/>
             </div>
-            <div className="pointItem"/>
         </div>
     )
-
 }
 
 export default ClockBody;
