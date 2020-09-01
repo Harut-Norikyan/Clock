@@ -3,15 +3,14 @@ import img from "./images/86787501_Clockblank150dpi.jpg"
 const ClockBody = (props) => {
 
     let hours = props.data.hours;
-    if (hours <= 12){
+    if (props.data.hours <= 12){
         hours = hours * 30;
     }
-    if (hours > 12){
+    if (props.data.hours > 12){
         hours = (hours % 12) * 30
     }
     let minutes = props.data.minutes * 6;
     let seconds = props.data.seconds * 6;
-
 
     return (
         <div>
